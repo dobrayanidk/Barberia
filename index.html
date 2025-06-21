@@ -1,291 +1,440 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santos Barber's Shop - Estilo y Precisión</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-     <style>
-        /* Pantalla de entrada */
-       #pantalla-entrada {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, #fdfdfd, #e8e8e8);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    text-align: center;
-    color: #111;
-    font-family: 'Montserrat', sans-serif;
-    transition: opacity 0.5s ease-in-out;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Santos Barber's Shop - Estilo y Precisión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Old+English+Text+MT&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #121212;
+      color: #eee;
+      overflow-x: hidden;
+      margin: 0; padding: 0;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Old English Text MT', serif;
+      text-shadow: 0 0 8px #e60023;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: #ff4d4d;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .pantalla-entrada {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, #1f1f1f, #333);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+    .pantalla-entrada h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+    }
+    .pantalla-entrada p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+    }
+    .btn-entrada {
+      background: linear-gradient(45deg, #e60023, #ff4d4d);
+      border: none;
+      padding: 15px 45px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(230, 0, 35, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .btn-entrada:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 30px rgba(230, 0, 35, 0.6);
+    }
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-#pantalla-entrada h1 {
-    font-size: 3.2rem;
-    margin-bottom: 30px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #222;
-}
+    main {
+      padding: 2rem 1rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-#pantalla-entrada p {
-    font-size: 1.4rem;
-    margin-bottom: 50px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: #444;
-}
+    #header-barberia {
+      font-family: 'Old English Text MT', serif;
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 0 0 8px #e60023;
+      text-align: center;
+      margin: 1rem 0 2rem;
+      user-select: none;
+    }
 
-/* Botón de entrar - estilo claro */
-#entrarBtn {
-    padding: 18px 50px;
-    font-size: 22px;
-    background: linear-gradient(135deg, #ff5e5e, #d40000);
-    border: none;
-    border-radius: 50px;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.7s ease, opacity 0.7s ease;
-    z-index: 0;
-}
+    /* Hero Section */
+    #hero {
+      background: linear-gradient(120deg, #111, #444);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      margin-bottom: 3rem;
+    }
+    #hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.3rem;
+    }
+    #hero p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+    #hero a.btn {
+      background-color: #e60023;
+      border-radius: 50px;
+      padding: 12px 30px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      display: inline-block;
+      box-shadow: 0 6px 20px rgba(230, 0, 35, 0.7);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    #hero a.btn:hover {
+      background-color: #ff4d4d;
+      box-shadow: 0 8px 30px rgba(230, 0, 35, 0.9);
+    }
 
-#entrarBtn::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.15) 0,
-        rgba(255, 255, 255, 0.05) 10px,
-        transparent 10px,
-        transparent 20px
-    );
-    z-index: 1;
-    animation: stripes-move 3s linear infinite;
-    pointer-events: none;
-    border-radius: 50px;
-}
+    /* Servicios */
+    #servicios {
+      margin-bottom: 4rem;
+    }
+    #servicios .section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .service-grid {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .service-card {
+      background: #222;
+      flex: 1 1 280px;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+      text-align: center;
+      color: #eee;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(230, 0, 35, 0.8);
+    }
+    .service-card-premium {
+      border: 2px solid #e60023;
+    }
+    .service-card-extras {
+      border: 2px solid #ff4d4d;
+    }
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #e60023;
+    }
+    .service-hover, .service-details {
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #ff4d4d;
+    }
+    .service-details p {
+      margin: 0.3rem 0;
+      font-weight: 400;
+      color: #fff;
+    }
 
-#entrarBtn::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0.8), rgba(255,255,255,0.3));
-    transform: rotate(25deg);
-    animation: shine 2.5s linear infinite;
-    pointer-events: none;
-    border-radius: 50px;
-    z-index: 2;
-}
+    /* Ubicación */
+    #ubicacion {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      background: #222;
+      border-radius: 16px;
+      padding: 2rem;
+      color: #eee;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+    }
+    .location-info {
+      flex: 1 1 50%;
+    }
+    .location-info h2 {
+      font-size: 2.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .location-info p {
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .location-details p {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 400;
+    }
+    .location-details i {
+      color: #e60023;
+      font-size: 1.2rem;
+    }
+    .map-container {
+      flex: 1 1 50%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      min-height: 480px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
 
-/* Animaciones */
-@keyframes stripes-move {
-    0% { background-position: 0 0; }
-    100% { background-position: 40px 40px; }
-}
+    @media (max-width: 768px) {
+      #ubicacion {
+        flex-direction: column;
+      }
+      .map-container {
+        min-height: 300px;
+      }
+    }
 
-@keyframes shine {
-    0% { transform: translateX(-100%) rotate(25deg); }
-    100% { transform: translateX(100%) rotate(25deg); }
-}
-
-#entrarBtn.oculto {
-    opacity: 0;
-    transform: translateY(-150px) scale(0.8);
-    pointer-events: none;
-}
-
-
-        /* Contenido oculto al principio */
-        #contenido {
-            display: none;
-        }
-    </style>
+    /* Footer */
+    footer {
+      background: #1c1c1c;
+      color: #ccc;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: inset 0 1px 0 #333;
+      font-size: 0.9rem;
+    }
+    footer .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+    }
+    footer .footer-logo h3 {
+      font-family: 'Old English Text MT', serif;
+      font-size: 2rem;
+      color: #ff4d4d;
+      margin-bottom: 0.3rem;
+    }
+    footer .footer-logo p {
+      font-weight: 400;
+      color: #aaa;
+    }
+    footer .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 120px;
+    }
+    footer .footer-links h4 {
+      color: #ff4d4d;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    footer .footer-links a {
+      color: #ccc;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+    footer .footer-links a:hover {
+      color: #ff4d4d;
+    }
+    footer .social-icons a {
+      color: #ff4d4d;
+      font-size: 1.8rem;
+      margin: 0 8px;
+      transition: color 0.3s ease;
+    }
+    footer .social-icons a:hover {
+      color: #e60023;
+    }
+    footer .copyright {
+      flex-basis: 100%;
+      margin-top: 1.5rem;
+      color: #555;
+    }
+  </style>
 </head>
-
 <body>
-      
-<!-- Pantalla de entrada -->
-<div id="pantalla-entrada">
-     <p>SANTOS BARBER'S SHOP <br>TU ESTILO COMIENZA AQUI!</p> <!-- Texto agregado arriba del botón -->
-    <button id="entrarBtn">Entrar</button>
-</div>
+  <div class="pantalla-entrada" id="pantallaEntrada">
+    <h1>Santos Barber's Shop</h1>
+    <p>Tu estilo comienza aquí</p>
+    <button class="btn-entrada" onclick="iniciarSitio()">Entrar</button>
+  </div>
 
-<audio id="audio" src="hola.mp3" preload="auto"></audio>
-<!-- Contenido oculto al principio -->
-<div id="contenido">
-  <!-- HERO -->
-    <main>
-        <section id="hero" class="hero-video enhanced-hero">
-            <div class="hero-background-overlay"></div>
-            <video autoplay loop muted class="hero-background-video">
-                <source src="barbershop-hero.mp4" type="video/mp4" />
-            </video>
-            <div class="hero-content-wrapper">
-                <div class="hero-content">
-                    <div class="hero-logo-container">
-                        <h1 class="hero-logo glitch" data-text="Santos Barber's">Santos Barber's</h1>
-                        <div class="hero-tagline-container">
-                            <span class="hero-tagline">Estilo Urbano · Cortes Modernos</span>
-                        </div>
-                    </div>
-                    <div class="hero-description">
-                        <p class="animated-text">Transformando tu imagen, un corte a la vez</p>
-                    </div>
-                </div>
-                <div class="hero-contact-info">
-                    <a href="tel:5560812122" class="contact-phone neon-text">
-                        <i class="fas fa-phone-alt"></i> 55-60-81-21-22
-                    </a>
-                </div>
-                <div class="hero-contact-info">
-                    <a href="tel:5544264294" class="contact-phone neon-text">
-                        <i class="fas fa-phone-alt"></i> 55-44-26-42-94
-                    </a>
-                </div>
-                <div class="hero-contact-info">
-                    <a href="https://wa.me/5560812122" target="_blank" class="contact-whatsapp neon-text">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                </div>
-            </div>
-        </section>
+  <audio id="audio" src="hola (1).mp3" preload="auto"></audio>
 
-        <!-- SERVICIOS -->
-        <section id="servicios">
-            <div class="section-header">
-                <h2>Nuestros Servicios</h2>
-                <p>Cada corte, una obra maestra</p>
-            </div>
-            <div class="service-grid">
-                <div class="service-card service-card-premium" data-aos="flip-left">
-                    <div class="service-icon">
-                        <i class="fas fa-cut"></i>
-                    </div>
-                    <h3>Corte Desvanecido</h3>
-                    <p>Estilo moderno y preciso</p>
-                    <div class="service-hover">
-                        <span class="price">$120</span>
-                    </div>
-                </div>
-                <div class="service-card" data-aos="flip-up">
-                    <div class="service-icon">
-                        <i class="fas fa-cut"></i>
-                    </div>
-                    <h3>Corte Básico</h3>
-                    <p>Corte clásico y limpio</p>
-                    <div class="service-hover">
-                        <span class="price">$100</span>
-                    </div>
-                </div>
-                <div class="service-card service-card-extras" data-aos="flip-right">
-                    <div class="service-icon">
-                        <i class="fas fa-beard"></i>
-                    </div>
-                    <h3>Servicios Adicionales</h3>
-                    <p>Diseño y cuidado personal</p>
-                    <div class="service-details">
-                        <p>Barba: <span class="price">$30</span></p>
-                        <p>Ceja con Diseño: <span class="price">$20</span></p>
-                        <p>Laminado de Ceja: <span class="price">$50</span></p>
-                        <p>Mascarilla Facial: <span class="price">$20</span></p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <main id="contenido" style="display:none">
+    <div id="header-barberia">Santos Barber's Shop</div>
 
-        <!-- UBICACIÓN -->
-        <section id="ubicacion" class="location-section expanded">
-            <div class="location-container">
-                <div class="location-info">
-                    <h2>Nuestra Barbería</h2>
-                    <p>Santos Barber Shop - Donde el estilo se transforma</p>
-                    <div class="location-details">
-                        <p><i class="fas fa-map-marker-alt"></i> Dirección: Calle Ote 3 #72, Floresta, 57840 Los Reyes Acaquilpan, Méx.</p>
-                        <p><i class="fas fa-phone"></i> Teléfono: 55-44-26-42-94</p>
-                        <p><i class="fas fa-clock"></i> Horario: Lun-Mar 12:00 AM - 8:00 PM, Jue-Dom 12:00 - 8:00</p>
-                    </div>
-                </div>
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.7139524220144!2d-98.96640012471873!3d19.388980286883644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e2ff5f7f0001%3A0x9e1a1ba4dfc40a7b!2sCalle%20Ote.%203%20%2372%2C%20Floresta%2C%2057840%20Los%20Reyes%20Acaquilpan%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1706473456699"
-                        width="600"
-                        height="450"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"></iframe>
-                </div>
-            </div>
-        </section>
-    </main>
+    <section id="hero">
+      <h1>Santos Barber's Shop</h1>
+      <p>Estilo Urbano · Cortes Modernos</p>
+      <a href="tel:5560812122" class="btn"><i class="fas fa-phone-alt"></i> 55-60-81-21-22</a>
+    </section>
 
-    <!-- PIE DE PÁGINA -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h3>Santos Barber's</h3>
-                <p>Barbería Profesional</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navegación</h4>
-                <a href="#hero">Inicio</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#ubicacion">Ubicación</a>
-            </div>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/marcossantoscolin" class="instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/share/1FTMKgKdWa/" class="facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://wa.me/5560812122" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Santos Barber's Shop. Todos los derechos reservados.</p>
-            </div>
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <div class="section-header">
+        <h2>Nuestros Servicios</h2>
+        <p>Cada corte, una obra maestra</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card service-card-premium" data-aos="flip-left">
+          <div class="service-icon"><i class="fas fa-cut"></i></div>
+          <h3>Corte Desvanecido</h3>
+          <p>Estilo moderno y preciso</p>
+          <div class="service-hover"><span class="price">$120</span></div>
         </div>
-    </footer>
+        <div class="service-card" data-aos="flip-up">
+          <div class="service-icon"><i class="fas fa-cut"></i></div>
+          <h3>Corte Básico</h3>
+          <p>Corte clásico y limpio</p>
+          <div class="service-hover"><span class="price">$100</span></div>
+        </div>
+        <div class="service-card service-card-extras" data-aos="flip-right">
+          <div class="service-icon"><i class="fas fa-beard"></i></div>
+          <h3>Servicios Adicionales</h3>
+          <p>Diseño y cuidado personal</p>
+          <div class="service-details">
+            <p>Barba: <span class="price">$30</span></p>
+            <p>Ceja con Diseño: <span class="price">$20</span></p>
+            <p>Laminado de Ceja: <span class="price">$50</span></p>
+            <p>Mascarilla Facial: <span class="price">$20</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</div> <!-- Fin de #contenido -->
+    <!-- UBICACIÓN -->
+    <section id="ubicacion">
+      <div class="location-info">
+        <h2>Nuestra Barbería</h2>
+        <p>Santos Barber Shop - Donde el estilo se transforma</p>
+        <div class="location-details">
+          <p><i class="fas fa-map-marker-alt"></i> Dirección: Calle Ote 3 #72, Floresta, 57840 Los Reyes Acaquilpan, Méx.</p>
+          <p><i class="fas fa-phone"></i> Teléfono: 55-44-26-42-94</p>
+          <p><i class="fas fa-clock"></i> Horario: Lun-Mar 12:00 AM - 8:00 PM, Jue-Dom 12:00 - 8:00</p>
+        </div>
+      </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.7139524220144!2d-98.96640012471873!3d19.388980286883644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e2ff5f7f0001%3A0x9e1a1ba4dfc40a7b!2sCalle%20Ote.%203%20%2372%2C%20Floresta%2C%2057840%20Los%20Reyes%20Acaquilpan%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1706473456699"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
 
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-<script src="script.js"></script>
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3>Santos Barber's</h3>
+        <p>Barbería Profesional</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <a href="#hero">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#ubicacion">Ubicación</a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/marcossantoscolin" class="instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1FTMKgKdWa/" class="facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/5560812122" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Santos Barber's Shop. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
 
-<script>
-    const entrarBtn = document.getElementById('entrarBtn');
-    entrarBtn.addEventListener('click', () => {
-        const audio = document.getElementById('audio');
-        audio.play().catch(err => {
-            console.log("Error al reproducir el audio:", err);
-        });
+  <script>
+    const pantallaEntrada = document.getElementById('pantallaEntrada');
+    const contenido = document.getElementById('contenido');
+    const audio = document.getElementById('audio');
 
-        // Animar el botón para desaparecer hacia arriba
-        entrarBtn.classList.add('oculto');
+    function iniciarSitio() {
+      pantallaEntrada.classList.add('fade-out');
+      setTimeout(() => {
+        pantallaEntrada.style.display = 'none';
+        contenido.style.display = 'block';
+        audio.play();
+      }, 1000);
+    }
 
-        // Después de la animación, ocultar pantalla entrada y mostrar contenido
-        setTimeout(() => {
-            document.getElementById('pantalla-entrada').style.display = 'none';
-            document.getElementById('contenido').style.display = 'block';
-        }, 700); // duración de la transición
+    // Detener audio si se oculta pestaña
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        audio.pause();
+      } else {
+        if (contenido.style.display === 'block') {
+          audio.play();
+        }
+      }
     });
-</script>
 
+    // Navegación smooth scroll
+    document.querySelectorAll('footer .footer-links a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 60,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
